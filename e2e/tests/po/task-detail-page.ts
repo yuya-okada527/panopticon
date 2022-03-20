@@ -6,6 +6,10 @@ export default class TaskDetailPage extends PageObject {
     super(page);
   }
 
+  async goto(projectId: number, taskId: number) {
+    await this.page.goto(`/${projectId}/task/${taskId}`);
+  }
+
   static async isOnPage(page: Page) {
     expect(page).toHaveURL(/.*\/[0-9]+\/task\/[0-9]+/);
   }
